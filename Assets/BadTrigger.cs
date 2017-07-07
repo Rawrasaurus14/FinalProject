@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BadTrigger : MonoBehaviour {
 	Vector3 startPos = new Vector3 (-30,2,20);
+	Vector3 endPos = new Vector3 (-657,2,-584);
 	// Use this for initialization
 	void Start () {
 		startPos = transform.position;
@@ -14,6 +15,11 @@ public class BadTrigger : MonoBehaviour {
 		
 	}
 	void OnTriggerEnter(Collider other){
-		transform.position = startPos;
+		if (other.gameObject.tag == "bad") {
+			transform.position = startPos;
+		}
+		if (other.gameObject.tag == "good") {
+			transform.position = endPos;
+		}
 	}
 }
