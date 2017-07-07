@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BadTrigger : MonoBehaviour {
 	Vector3 startPos = new Vector3 (-30,2,20);
@@ -20,6 +21,9 @@ public class BadTrigger : MonoBehaviour {
 		}
 		if (other.gameObject.tag == "good") {
 			transform.position = endPos;
+		}
+		if (other.gameObject.tag == "end") {
+			SceneManager.LoadScene ("endddd");
 		}
 	}
 }
